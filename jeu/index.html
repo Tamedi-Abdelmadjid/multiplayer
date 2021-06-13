@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+   
+    <style>
+      
+body {
+    /* background-color: lightblue; */
+    padding: 30px;
+}
+.cercle {
+    display: none;
+    position: absolute;
+    top: 43%;
+    left: 46%;
+    border-radius:50%; 
+    border:2px solid;
+
+    width: 100px;
+    height: 100px;
+}
+.commencer {
+    display: block;
+    position: absolute;
+    top: 40%;
+    left: 45%;
+    transition: 0.1s ease all;
+    background: white;
+    color: black;
+    border: 3px solid black;
+
+    width: 150px;
+    height: 150px;
+
+}
+
+#score{
+    position: relative;
+    border: 2px black solid;
+}
+</style>
+</head>
+<body id="body">
+  <section>
+      <button type="button" id="cercle" class="cercle btn-lg btn-danger">
+      </button>
+      <button type="button" id="commencer" class="commencer btn-lg">Commencer
+      </button>
+      
+  
+      <div class="section-demarrer">
+          <div class="texte-gauche" style="position: absolute; top: 30px;left: 30px; width: 550px;border-bottom: 2px solid black;
+          border-right: 2px solid black;">
+              <h3> Bonjour, veuillez renseigner votre pseudonyme</h3>
+              <form action="/auth" method="POST" id="formulaire"  >
+                <label for="pseudonyme">Pseudonyme :</label>
+                <input type="text" id="pseudonyme" name="pseudonyme"/>
+                <button type="submit" id="commencer" class="btn btn-success">Envoyer
+                </button>
+              </form>
+          </div>
+          
+          <div class="texte-droit" style="position: absolute;
+          top: 30px;
+          right: 30px;
+          width: 550px;
+          border-bottom: 2px solid black;
+          border-left: 2px solid black;">
+              <h3>Consignes :</h3>
+              <p>Cliquez en premier sur le cercle pour marquer un point à chaque fois </p>
+          </div>
+      </div>
+  </section>
+  <!-- <p id="score"></p> -->
+  <ul id="leScore">
+      <li>Score :</li>
+  </ul>
+  <ul id="historique">
+      <li></li>
+  </ul>
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="client.js"></script>
+  </body>
+  </html>
